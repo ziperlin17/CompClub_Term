@@ -86,11 +86,10 @@ public class PlaceDao {
     public void updatePlacesOut(int placeId) throws DbException {
         try {
             PreparedStatement preparedStatement = connectionProvider.getCon().prepareStatement("UPDATE places set " +
-                    "status = true, time_in = null, time_out = null, currentuser = null " +
+                    "status = true, time_in = null, time_out = null, currentuser = null, current_username = null " +
                     "where id = ?");
             preparedStatement.setInt(1,placeId);
-//            preparedStatement.setString(1,time_in);
-//            preparedStatement.setString(1,time_out);
+
             preparedStatement.executeUpdate();
             preparedStatement.close();
         } catch (SQLException e) {

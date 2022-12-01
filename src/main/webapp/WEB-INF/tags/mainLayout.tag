@@ -59,7 +59,7 @@
                 </a>
             </li>
             <li class="admin__item item">
-                <a href="" class="admin__link link">
+                <a href="<c:url value="/logout"/>" class="admin__link link">
 
                     <span>Logout</span>
                 </a>

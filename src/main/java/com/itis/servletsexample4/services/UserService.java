@@ -21,6 +21,14 @@ public class UserService {
         return req.getSession().getAttribute("user") == null;
     }
 
+    public void logout(HttpServletRequest req, HttpServletResponse resp) {
+        req.getSession().removeAttribute("notAvailablePlaces");
+        req.getSession().removeAttribute("user");
+        req.getSession().removeAttribute("userId");
+        req.getSession().removeAttribute("username");
+
+    }
+
     public User getUser(HttpServletRequest req, HttpServletResponse res) {
         // ToDo: check for existence
         return (User) req.getSession().getAttribute("user");

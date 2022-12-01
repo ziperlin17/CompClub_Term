@@ -23,8 +23,6 @@ import java.util.Timer;
 public class AfterSuccessPay extends HttpServlet {
     private PlaceDao placeDao;
     private UserService userService;
-    int idCheck = 0;
-
 
     @Override
     public void init(ServletConfig config) throws ServletException {
@@ -88,9 +86,8 @@ public class AfterSuccessPay extends HttpServlet {
                                         t.cancel();
                                     }
                                 },
-                                600000
+                                3600000L *Integer.parseInt(hrs)
                         );
-
                     }
                     else {
                         System.out.println("already taken");
@@ -106,7 +103,5 @@ public class AfterSuccessPay extends HttpServlet {
             request.getSession().removeAttribute("topay");
             response.sendRedirect(request.getContextPath()+"/paymentError");
         }
-
-
     }
 }
