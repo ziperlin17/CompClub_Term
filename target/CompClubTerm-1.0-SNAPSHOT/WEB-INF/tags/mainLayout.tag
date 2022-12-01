@@ -1,5 +1,5 @@
 <%@ tag import="org.springframework.boot.web.servlet.server.Session" %>
-<%@ tag import="com.itis.term.model.PlaceEntity" %>
+<%@ tag import="com.itis.servletsexample4.model.PlaceEntity" %>
 <%@ tag import="java.util.ArrayList" %>
 <%@tag description="Default Layout Tag" pageEncoding="UTF-8" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -59,7 +59,7 @@
                 </a>
             </li>
             <li class="admin__item item">
-                <a href="" class="admin__link link">
+                <a href="<c:url value="/logout"/>" class="admin__link link">
 
                     <span>Logout</span>
                 </a>
