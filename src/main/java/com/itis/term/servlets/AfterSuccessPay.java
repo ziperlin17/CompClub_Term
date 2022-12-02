@@ -56,7 +56,7 @@ public class AfterSuccessPay extends HttpServlet {
         }
 
 
-        if (Integer.parseInt(moneyValue)>Integer.parseInt(toPay)) {
+        if (Integer.parseInt(moneyValue)>=Integer.parseInt(toPay)) {
             for (int i = 0; i < placesIdList.size(); i++) {
                 try {
                     DateTimeFormatter date_time = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm");
