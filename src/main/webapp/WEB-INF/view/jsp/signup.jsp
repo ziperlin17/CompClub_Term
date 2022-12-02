@@ -21,6 +21,7 @@
             <span></span>
             <label>Password</label>
         </div>
+
         <input form="signupform" type="submit" value="Register">
         <div class="signup_link">
             Already registered? <a href="<c:url value="/login"/>">Login</a>

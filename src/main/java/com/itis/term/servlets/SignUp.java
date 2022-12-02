@@ -59,7 +59,6 @@ public class SignUp extends HttpServlet {
                 } else {
 //                    req.setAttribute("sucessLogin", false);
 //                    resp.sendRedirect(getServletContext().getContextPath()+"/Iogin");
-//                    req.getSession().setAttribute("error","user exist");
                     resp.sendRedirect(getServletContext().getContextPath()+"/signupError");
                 }
             } catch (DbException e) {
