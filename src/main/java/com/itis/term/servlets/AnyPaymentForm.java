@@ -14,16 +14,6 @@ import java.io.IOException;
 @WebServlet("/payment")
 public class AnyPaymentForm extends HttpServlet {
 
-    private PlaceDao placeDao;
-    private UserService userService;
-
-    @Override
-    public void init(ServletConfig config) throws ServletException {
-        super.init(config);
-        placeDao = (PlaceDao) getServletContext().getAttribute("placeDao");
-        userService = (UserService) getServletContext().getAttribute("userService");
-    }
-
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.getRequestDispatcher("/WEB-INF/view/jsp/payment.jsp").forward(req, resp);
@@ -34,14 +24,12 @@ public class AnyPaymentForm extends HttpServlet {
 //        req.getRequestDispatcher("/WEB-INF/view/jsp/payment.jsp").forward(req, resp);
         System.out.println(req.getSession().getAttribute("user"));
 
-        String a = (String) req.getParameter("arr");
-        String b = (String) req.getParameter("hours");
-        String c = (String) req.getParameter("topay");
+        String chosenPlaces = (String) req.getParameter("chosenPlaces");
+        String chosenHours = (String) req.getParameter("chosenHours");
+        String toPay = (String) req.getParameter("toPay");
 
-        req.getSession().setAttribute("arr",a);
-        req.getSession().setAttribute("hours",b);
-        req.getSession().setAttribute("topay",c);
-
-        System.out.println(a+b+c+"!!");
+        req.getSession().setAttribute("chosenPlaces",chosenPlaces);
+        req.getSession().setAttribute("chosenHours",chosenHours);
+        req.getSession().setAttribute("toPay",toPay);
     }
 }

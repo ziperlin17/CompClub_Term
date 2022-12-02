@@ -28,11 +28,11 @@ for (let i = 0; i < pic.length; i++) {
             // console.log(pic[i].getAttribute('src').split('/')[2]== ('no1.png' || 'novip1.png'))
             pic[i].style.opacity = 1
             pici[i] = true;
-            button.textContent = "Book "+countChoosen(pici).toString() + " seats for "+ toPay(pici) + " rub";
+            button.textContent = "Book "+countChoosen(pici).toString() + " seats for "+ toPayValue(pici) + " rub";
         } else if (pic[i].style.opacity == 1) {
             pic[i].style.opacity = 0.65
             pici[i] = false;
-            button.textContent = "Book "+countChoosen(pici).toString() + " seats for "+ toPay(pici) + " rub";
+            button.textContent = "Book "+countChoosen(pici).toString() + " seats for "+ toPayValue(pici) + " rub";
 
         }
 
@@ -49,7 +49,7 @@ function sendIds (array) {
     return sendArray;
 }
 console.log(sessionStorage.getItem("user"))
-function toPay (array) {
+function toPayValue (array) {
     var count = document.getElementById('hourvalue').value
     var sum = 0;
     for (let i = 1; i < 21; i++) {
@@ -78,7 +78,7 @@ $(document).ready(function() {
             method: 'post',
             url : '/focused/payment',
             data : {
-                toPay: toPay(pici),
+                toPay: toPayValue(pici),
                 chosenPlaces : sendIds(pici).toString(),
                 chosenHours : count.toString()
             },

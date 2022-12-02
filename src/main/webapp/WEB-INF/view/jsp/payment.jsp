@@ -7,7 +7,7 @@
     <div class="center">
         <h1> </h1>
         <form id="loginform" action = "<c:url value="/payment/check"/>"  method="POST">
-            <h2>${topay} ₽      </h2>
+            <h2>${toPay} ₽      </h2>
             <div class="txt_field">
                 <input name="cardnumber" type="number" maxlength="16" required>
                 <span></span>
