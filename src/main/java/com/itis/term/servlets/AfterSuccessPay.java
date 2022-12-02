@@ -32,12 +32,12 @@ public class AfterSuccessPay extends HttpServlet {
 
     @Override
     protected void doPost (HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        String arr = String.valueOf(request.getSession().getAttribute("arr"));
-        String hrs = String.valueOf(request.getSession().getAttribute("hours"));
-        String topay = String.valueOf(request.getSession().getAttribute("topay"));
+        String chosenPlaces = String.valueOf(request.getSession().getAttribute("chosenPlaces"));
+        String chosenHours = String.valueOf(request.getSession().getAttribute("chosenHours"));
+        String toPay = String.valueOf(request.getSession().getAttribute("toPay"));
 
 
-        request.getSession().removeAttribute("arr");
+        request.getSession().removeAttribute("chosenPlaces");
         request.getSession().removeAttribute("hours");
 
         String cardnumber = request.getParameter("cardnumber");
@@ -51,12 +51,12 @@ public class AfterSuccessPay extends HttpServlet {
         User user = (User) request.getSession().getAttribute("user");
 
         ArrayList<Integer> placesIdList = new ArrayList<>();
-        for (int i = 0; i < arr.split(",").length; i++) {
-            placesIdList.add(Integer.parseInt(arr.split(",")[i]));
+        for (int i = 0; i < chosenPlaces.split(",").length; i++) {
+            placesIdList.add(Integer.parseInt(chosenPlaces.split(",")[i]));
         }
 
 
-        if (Integer.parseInt(moneyValue)>Integer.parseInt(topay)) {
+        if (Integer.parseInt(moneyValue)>Integer.parseInt(toPay)) {
             for (int i = 0; i < placesIdList.size(); i++) {
                 try {
                     DateTimeFormatter date_time = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm");
@@ -67,7 +67,7 @@ public class AfterSuccessPay extends HttpServlet {
                     Integer currentUser = placeDao.getPlaceStatusAndTime(placesIdList.get(i)).getCurrent_user();
 
                     if (status==true) {
-                        placeDao.updatePlacesIn(false, date_time.format(now), date_time.format(now.plusHours(Integer.parseInt(hrs))), user.getId(), user.getUserName(), placesIdList.get(i));
+                        placeDao.updatePlacesIn(false, date_time.format(now), date_time.format(now.plusHours(Integer.parseInt(chosenHours))), user.getId(), user.getUserName(), placesIdList.get(i));
                         request.getSession().removeAttribute("notAvailablePlaces");
                         request.getSession().setAttribute("notAvailablePlaces", placeDao.getNotAvailablePlaces());
                         Timer t = new java.util.Timer();
@@ -84,7 +84,7 @@ public class AfterSuccessPay extends HttpServlet {
                                         t.cancel();
                                     }
                                 },
-                                3600000L *Integer.parseInt(hrs)
+                                3600000L *Integer.parseInt(chosenHours)
                         );
                     }
                     else {
@@ -94,11 +94,11 @@ public class AfterSuccessPay extends HttpServlet {
                     e.printStackTrace();
                 }
             }
-            request.getSession().removeAttribute("topay");
+            request.getSession().removeAttribute("toPay");
             response.sendRedirect(request.getContextPath()+"/place");
 
         } else {
-            request.getSession().removeAttribute("topay");
+            request.getSession().removeAttribute("toPay");
             response.sendRedirect(request.getContextPath()+"/paymentError");
         }
     }

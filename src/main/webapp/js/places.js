@@ -78,9 +78,9 @@ $(document).ready(function() {
             method: 'post',
             url : '/focused/payment',
             data : {
-                topay: toPay(pici),
-                arr : sendIds(pici).toString(),
-                hours : count.toString()
+                toPay: toPay(pici),
+                chosenPlaces : sendIds(pici).toString(),
+                chosenHours : count.toString()
             },
             success : function(response) {
                 document.location.href = "/focused/payment"

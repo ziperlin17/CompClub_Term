@@ -2,7 +2,7 @@
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<t:mainLayout title="Places" jsGroup = 'place'>
+<t:mainLayout title="Places" jsGroup='place'>
     <div class="bbody" style="color: #292929; margin: -330px -320px -320px 0px; z-index: 999; height: 50px"> <h1>Game hall №1</h1> </div>
 
     <div class = "bbody">
