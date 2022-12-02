@@ -37,4 +37,34 @@ public class UserDao {
         }
     }
 
+    public User getUserByEmail(String username) throws DbException {
+        try {
+            PreparedStatement st = this.connectionProvider.getCon().prepareStatement("SELECT * FROM users WHERE email = ?");
+            st.setString(1, username);
+            ResultSet result = st.executeQuery();
+            boolean hasOne = result.next();
+            if(hasOne) {
+                System.out.println("someone returned");
+                return new User(result.getInt("id"), result.getString("email"), result.getString("username"), result.getBoolean("online"));
+            } else {
+                System.out.println("returned null");
+                return null;
+            }
+        } catch (SQLException e) {
+            throw new DbException("Can't get user from db.", e);
+        }
+    }
+
+    public void registerUser(String email, String username, String password) throws DbException {
+        try {
+            PreparedStatement st = this.connectionProvider.getCon().prepareStatement("INSERT INTO users (email, password, online, username) VALUES  (?, md5(?), false, ?)");
+            st.setString(1, email);
+            st.setString(2, password);
+            st.setString(3, username);
+            st.executeUpdate();
+        } catch (SQLException e) {
+            throw new DbException("Can't get user from db.", e);
+        }
+    }
+
 }

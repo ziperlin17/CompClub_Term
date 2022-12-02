@@ -5,23 +5,23 @@
 <t:mainLayout title="Places" jsGroup = 'signup'>
 <div class="center">
     <h1> </h1>
-    <form id="loginform" action = <c:url value="/login"/>  method="POST">
+    <form id="signupform" formaction="<c:url value="/signup"/>"  method="POST">
         <div class="txt_field">
-            <input type="text" required>
+            <input name="email" type="text" required>
             <span></span>
             <label>E-mail</label>
         </div>
         <div class="txt_field">
-            <input type="text" required>
+            <input name="username" type="text" required>
             <span></span>
             <label>Username</label>
         </div>
         <div class="txt_field">
-            <input type="password" required>
+            <input name="password" type="password" required>
             <span></span>
             <label>Password</label>
         </div>
-        <input type="submit" value="Register">
+        <input form="signupform" type="submit" value="Register">
         <div class="signup_link">
             Already registered? <a href="<c:url value="/login"/>">Login</a>
         </div>

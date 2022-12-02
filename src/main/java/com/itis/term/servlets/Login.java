@@ -47,7 +47,6 @@ public class Login extends HttpServlet {
                 if (user == null) {
                     response.sendRedirect(getServletContext().getContextPath()+"/Iogin");
                 } else {
-                    request.setAttribute("sucessLogin", false);
                     ArrayList<PlaceEntity> notAvailablePlaces = placeDao.getNotAvailablePlaces();
                     userService.auth(notAvailablePlaces,user,request,response);
                     response.sendRedirect(getServletContext().getContextPath()+"/place");
