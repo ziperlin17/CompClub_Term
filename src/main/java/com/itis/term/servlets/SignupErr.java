@@ -7,13 +7,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-import static java.lang.System.out;
-
-@WebServlet("/Iogin")
-public class LoginErr extends HttpServlet {
+@WebServlet("/signupError")
+public class SignupErr extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        getServletContext().getRequestDispatcher("/WEB-INF/view/jsp/LoginErr.jsp").forward(request, response);
+        getServletContext().getRequestDispatcher("/WEB-INF/view/jsp/SignupErr.jsp").forward(request, response);
     }
 }

@@ -34,30 +34,11 @@
             <li class="menu__item item">
                 <a href="#" class="menu__link link">
 
-                    <span>Recents</span>
+                    <span>Profile</span>
                 </a>
             </li>
-            <li class="menu__item item">
-                <a href="#" class="menu__link link">
-
-                    <span>Starred</span>
-                </a>
-            </li>
-            <li class="menu__item item">
-                <a href="#" class="menu__link link">
-
-                    <span>Photos</span>
-                </a>
-            </li>
-
         </ul>
         <ul class="menu__admin admin">
-            <li class="admin__item item">
-                <a href="" class="admin__link link">
-
-                    <span>Get help</span>
-                </a>
-            </li>
             <li class="admin__item item">
                 <a href="<c:url value="/logout"/>" class="admin__link link">
 
