@@ -55,7 +55,7 @@
             </div>
             <input href="<c:url value="/place"/>" type="submit" value="Pay">
             <div class="signup_link">
-                <a href="<c:url value="/welcome"/>">Return</a>
+                <a href="<c:url value="/place"/>">Return</a>
             </div>
         </form>
     </div>
