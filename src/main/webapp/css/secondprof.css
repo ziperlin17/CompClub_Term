@@ -104,17 +104,17 @@ li2 {
     color: #fff;
 }
 
-/* При наведении на ссылку - полупрозрачный белый фон */
+
 .link2:hover {
     background-color: rgba(255, 255, 255, 0.1);
 }
 
-/* Выводим оранжевую линию слева */
+
 .link2:hover:before {
     display: flex;
 }
 
-/* Создаем оранжевую линию слева */
+
 .link2:before {
     content: "";
     display: none;
@@ -149,17 +149,16 @@ li2 {
     color: #fff;
 }
 
-/* При наведении на ссылку - полупрозрачный белый фон */
+
 .link3:hover {
     background-color: rgba(255, 255, 255, 0.1);
 }
 
-/* Выводим оранжевую линию слева */
+
 .link3:hover:before {
     display: flex;
 }
 
-/* Создаем оранжевую линию слева */
 .link3:before {
     content: "";
     display: none;
@@ -171,7 +170,7 @@ li2 {
     background-color: #e70074;
 }
 
-/* Позиционирование админ-меню */
+
 .menu__admin2 {
     margin-top: auto;
     padding-bottom: 10px;
