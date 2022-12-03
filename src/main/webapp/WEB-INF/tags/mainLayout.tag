@@ -60,10 +60,21 @@
                 %>
                 <c:forEach items="${list}" var="notAvailablePlace">
             <tr>
-
-                                        <td>Place ${notAvailablePlace.id} -</td><td>${notAvailablePlace.current_username}</td>
+                <td>Place ${notAvailablePlace.id} -</td>
+                <td>${notAvailablePlace.current_username}</td>
+                <c:if test="${userId == 1}">
+                    <td><form  id="deleteBookingOnPlace" action = <c:url value="/deleteBooking"/>  method="POST">
+                        <input type="hidden" value="${notAvailablePlace.id}" name="placeId">
+                        <input class="link3" form="deleteBookingOnPlace" type="submit" value="X">
+                    </form></td>
+                </c:if>
             </tr>
                 </c:forEach>
+            <c:if test="${userId == 1}">
+                <form  id="deleteAll" action = <c:url value="/deleteAllBooking"/>  method="POST">
+                    <input class="link2" form="deleteAll" type="submit" value="       Take off computers">
+                </form>
+            </c:if>
 
             </table>
     </section>

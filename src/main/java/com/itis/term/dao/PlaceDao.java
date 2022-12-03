@@ -1,6 +1,5 @@
 package com.itis.term.dao;
 
-import com.itis.term.entity.Place;
 import com.itis.term.model.PlaceEntity;
 import com.itis.term.util.ConnectionProvider;
 import com.itis.term.util.DbException;
@@ -95,6 +94,7 @@ public class PlaceDao {
             throw new DbException("Can't update.", e);
         }
     }
+
     public ArrayList<PlaceEntity> getNotAvailablePlaces() throws DbException {
         ArrayList<PlaceEntity> notAvalablePlaces = new ArrayList<>();
         try {
@@ -117,13 +117,27 @@ public class PlaceDao {
             throw new DbException("Can't get count of books in DB.", e);
         }
     }
-
-
-
-
-
-    public List<Place> getPlaces() {
-        return new ArrayList<Place>();
+    public void deleteAllBooking() throws DbException {
+        try {
+            Statement statement = connectionProvider.getCon().createStatement();
+            String deleteAllBooking = "UPDATE places set " +
+                    "status = true, time_in = null, time_out = null, currentuser = null, current_username = null " +
+                    "where status=false";
+            statement.executeUpdate(deleteAllBooking);
+        } catch (SQLException e) {
+            throw new DbException("Can't update.", e);
+        }
     }
 
+    public void deleteBooking() throws DbException {
+        try {
+            Statement statement = connectionProvider.getCon().createStatement();
+            String deleteAllBooking = "UPDATE places set " +
+                    "status = true, time_in = null, time_out = null, currentuser = null, current_username = null " +
+                    "where status=false";
+            statement.executeUpdate(deleteAllBooking);
+        } catch (SQLException e) {
+            throw new DbException("Can't update.", e);
+        }
+    }
 }
