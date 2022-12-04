@@ -27,14 +27,8 @@
         <a href="#" class="menu__username">${user.getUserName()}</a>
         <ul class="menu__list list">
             <li class="menu__item item">
-                <a href="../WEB-INF/html/welcome.html" class="menu__link link">
+                <a href="<c:url value="/welcome"/>" class="menu__link link">
                     <span>Home</span>
-                </a>
-            </li>
-            <li class="menu__item item">
-                <a href="#" class="menu__link link">
-
-                    <span>Profile</span>
                 </a>
             </li>
         </ul>
